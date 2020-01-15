@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/hola', function(){
+    return "Hola Mundo";
 });
+
+Route::get('/user/{id}', function($id){
+    return "Mi código es:" . $id;
+});
+
+Route::get('/','StudentController@index' )->name('home');
+    
