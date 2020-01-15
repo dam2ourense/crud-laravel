@@ -24,4 +24,6 @@ Route::get('/user/{id}', function($id){
 });
 
 Route::get('/','StudentController@index' )->name('home');
+
+Route::get('/create','StudentController@create' )->name('create');
     
