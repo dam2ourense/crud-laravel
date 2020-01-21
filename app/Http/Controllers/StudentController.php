@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\StudentS;
+use App\Students;
 
 class StudentController extends Controller
 {
     public function index(){
-        return view('welcome');
+        $estudiantes = Students::all();
+        return view('welcome',compact('estudiantes'));
     }
 
     public function create(){
@@ -23,7 +24,7 @@ class StudentController extends Controller
             'telefono' => 'required'
         ]  );
 
-    $estudiante = new StudentS;
+    $estudiante = new Students;
     $estudiante->nombre = $request->nombre;
     $estudiante->apellidos = $request->apellidos;
     $estudiante->email = $request->email;
