@@ -201,12 +201,12 @@ commit ==> borrado b\'e1sico\par
 Para hacer un borrado m\'e1s complejo (con confirmaci\'f3n y m\'e9todo http:delete) cambiamos la  ruta\par
 Route::delete('/delete/\{id\}','StudentController@delete' )->name('delete');\par
 Y en el welcome, metemos c\'f3digo javascript.....\par
-      <form method="POST" id="delete-form" action="\{\{route('delete',$estudiante->id)\}\}" style="display: none;" >\par
+            <form method="POST" id="delete-form-\{\{$estudiante->id\}\}" action="\{\{route('delete',$estudiante->id)\}\}" style="display: none;" >\par
         \{\{csrf_field()\}\}\par
         \{\{method_field('delete')\}\}\par
       </form>\par
-      <button onclick="if (confirm('Estas seguro de borrar?'))\{\par
-        document.getElementById('delete-form').submit();  \par
+      <button onclick="if (confirm('Estas seguro de borrar?'))\{   \par
+        document.getElementById('delete-form-\{\{$estudiante->id\}\}').submit();  \par
         \}else\{\par
             event.preventDefault();\par
         \}      \par

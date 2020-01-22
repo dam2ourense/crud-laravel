@@ -31,12 +31,12 @@
       <td>{{$estudiante->telefono}}</td>
       <td>
       <a class="btn btn-raised btn-primary btn-sm" href="{{route('edit',$estudiante->id)}}"> <i class="fas fa-edit"></i></a>
-      <form method="POST" id="delete-form" action="{{route('delete',$estudiante->id)}}" style="display: none;" >
+      <form method="POST" id="delete-form-{{$estudiante->id}}" action="{{route('delete',$estudiante->id)}}" style="display: none;" >
         {{csrf_field()}}
         {{method_field('delete')}}
       </form>
-      <button onclick="if (confirm('Estas seguro de borrar?')){
-        document.getElementById('delete-form').submit();  
+      <button onclick="if (confirm('Estas seguro de borrar?')){   
+        document.getElementById('delete-form-{{$estudiante->id}}').submit();  
         }else{
             event.preventDefault();
         }      
