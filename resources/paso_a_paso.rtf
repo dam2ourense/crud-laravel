@@ -187,5 +187,17 @@ Por \'faltimo creamos el m\'e9todo update (copiando buena parte del store)\par
     return redirect (route('home'))->with('successMsg','Estudiante modificado');\par
     \}\par
 commit ===> alta, consulta y edici\'f3n\par
+Para borrar de forma simple bastar\'eda, crear una ruta:\par
+Route::get('/delete/\{id\}','StudentController@delete' )->name('delete');\par
+Referenciar la ruta en el bot\'f3n de borrado \par
+ href="\{\{route('delete',$estudiante->id)\}\}"> \par
+Y crear el controlador\par
+    public function delete($id)\{\par
+        $estudiante = Students::find($id);\par
+        $estudiante->delete();\par
+        return redirect  (route('home'))->with('successMsg','Estudiante borrado');\par
+    \}\par
+commit ==> borrado b\'e1sico\par
+\par
 }
  
