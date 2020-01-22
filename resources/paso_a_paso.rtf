@@ -216,6 +216,11 @@ Y en el welcome, metemos c\'f3digo javascript.....\par
       \par
       </button>\par
 commit ==> operaciones b\'e1sicas completadas\par
+Para paginaci\'f3n ponemos en el controlador el n\'famero de registros por p\'e1gina\par
+$estudiantes = Students::paginate(5);\par
+Y en la vista welcome donde queramos tener el control:\par
+\{\{$estudiantes->links()\}\}\par
+commit ==> fin\par
 \par
 }
  
